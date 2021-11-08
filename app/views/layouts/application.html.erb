@@ -5,7 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-        <!-- Fonte Rawline-->
+    <link rel="stylesheet" href="https://dsgov.estaleiro.serpro.gov.br/assets/design-system/dist/dsgov.css">
+    <!-- Fonte Rawline-->
     <link rel="stylesheet" href="https://cdn.dsgovserprodesign.estaleiro.serpro.gov.br/design-system/fonts/rawline/css/rawline.css"/>
     <!-- Fonte Raleway-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap"/>
@@ -24,7 +25,7 @@
     <%= render 'shared/flashes' %>
 
     <%= yield %>
-    
+
     <%= javascript_include_tag "https://dsgov.estaleiro.serpro.gov.br/assets/design-system/dist/dsgov.min.js" %>
   </body>
 </html>
