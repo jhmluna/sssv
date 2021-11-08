@@ -16,6 +16,7 @@ class RequestsController < ApplicationController
 
   def show
     # set_request - Substituido pelo before_action
+    render view_for_user(:show)
   end
 
   def new

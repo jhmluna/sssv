@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col col-sm-10 col-md-8">
+      <h1>Info about Request</h1>
+      <br>
+      <p><b> Instrument:     </b><%= @request.instrument %> </p>
+      <p><b> Service:   </b><%= @request.service %> </p>
+      <p><b> Location: </b><%= @request.location %> </p>
+      <p><b> Status: </b><%= @request.status %> </p>
+      <p><b> Description: </b><%= @request.description %> </p>
+      <% if @request.status != "Aberta" %>
+        <p><b> Report: </b><%= @request.report %> </p>
+      <% end %>
+      <br>
+
+      <%= link_to 'Edit', edit_request_path(@request), class: "br-button primary mt-3 mt-sm-0" %>
+      <%= link_to 'Back', requests_path, class: "br-button primary mt-3 mt-sm-0 ml-sm-3" %>
+    </div>
+  </div>
+
+
+  <div class="row justify-content-center">
+    <div class="col col-sm-10 col-md-8">
+      <div class="br-card">
+        <div class="card-header border-solid-none bg-white">
+          <div class="d-flex"><span class="br-avatar mt-1" title="Fulana da Silva"><span class="image"><img src="https://picsum.photos/id/823/400" alt="Avatar"/></span></span>
+            <div class="ml-3">
+              <p class="h5 text-primary-default mb-0">Maria Amorim</p><span>UX Designer</span>
+            </div>
+            <div class="ml-auto">
+              <button class="br-button circle" type="button" aria-label="Ícone ilustrativo"><i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore perferendis nam porro atque ex at, numquam non optio ab eveniet error vel ad exercitationem, earum et fugiat recusandae harum? Assumenda.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
