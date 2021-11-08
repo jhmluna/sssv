@@ -29416,7 +29416,7 @@ mark,
 }
 .br-breadcrumb .crumb-list .crumb a {
   cursor: pointer;
-  font-size: var(--font-size-scale-down-01);
+  font-size: var(--font-size-scale-down-0);
   font-weight: var(--font-weight-medium);
   max-width: 180px;
   overflow: hidden;
@@ -29449,7 +29449,7 @@ mark,
 .br-breadcrumb .crumb-list .crumb[data-active=active] span {
   color: var(--color-secondary-08);
   cursor: default;
-  font-size: var(--font-size-scale-down-01);
+  font-size: var(--font-size-scale-down-0);
   font-weight: var(--font-weight-medium);
   white-space: nowrap;
 }
