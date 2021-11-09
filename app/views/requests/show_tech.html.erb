@@ -3,6 +3,16 @@
     <div class="col col-lg-10 col-xl-8">
       <div class="px-sm-3 br-card">
         <%= render partial: 'card_content' %>
+        <% unless @request.status.eql?('Aberta') %>
+          <div class="card-content">
+            <div class="row form-group align-items-center">
+              <label class="col-sm-4 col-form-label text-left">Assigned Tech:</label>
+              <div class="col">
+                <p class="mb-0"><%= @request.tech.full_name %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
         <div class="card-footer bg-white p-3">
           <div class="row justify-content-around">
             <%= link_to 'Edit', edit_request_path(@request), class: "br-button" %>

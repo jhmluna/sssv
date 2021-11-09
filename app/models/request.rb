@@ -5,5 +5,5 @@ class Request < ApplicationRecord
               Minas\ Gerais Pará Paraíba Paraná Pernambuco Piauí Rio\ de\ Janeiro Rio\ Grande\ do\ Norte].freeze
   belongs_to :citizen, class_name: 'User'
   belongs_to :tech, optional: true, class_name: 'User'
-  validates :instrument, :service, :location, :description, presence:true
+  validates :instrument, :service, :location, :description, presence: true
 end
