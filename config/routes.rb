@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # Update requests
   patch 'requests/get/:id', to: 'requests#get', as: :request_get
 
+  # Redirect to index page on successful sign in
+  get '/user' => "requests#index", :as => :user_root
+
   authenticate :user, ->(user) { user.admin? || user.role == 'manager' } do
     mount Blazer::Engine, at: "blazer"
   end

@@ -67,10 +67,20 @@
         </div>
         <div class="card-footer bg-white p-3">
           <div class="row justify-content-around">
-            <% if @request.status.eql?("Aberta") && current_user.role.eql?("tech") %>
-              <%= link_to 'Get Request', request_get_path(@request), method: :patch, class: "br-button"  %>
+            <% case @request.status %>
+              <% when "Aberta" %>
+                <% case current_user.role %>
+                  <% when "tech" %>
+                    <%= link_to 'Get Request', request_get_path(@request), method: :patch, class: "br-button" %>
+                  <% when "citizen" %>
+                    <%= link_to 'Edit', edit_request_path(@request), class: "br-button" %>
+                <% end %>
+              <% when "Em andamento" %>
+                <% if current_user.role.eql?("tech") %>
+                  <%= link_to 'Update Report', edit_request_path(@request), class: "br-button" %>
+                <% end %>
             <% end %>
-            <%= link_to 'Edit', edit_request_path(@request), class: "br-button" %>
+
             <%= link_to 'Back', requests_path, class: "br-button" %>
           </div>
         </div>

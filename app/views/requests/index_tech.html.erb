@@ -1,5 +1,6 @@
 <div class="container">
-  <h1 class = "d-flex justify-content-center">List of Tech Requests</h1>
+  <h1>List of requests </h1>
+  <h4><%= current_user.full_name %></h4>
 
   <ul class="list-group">
   <% @requests.each do |request| %>
@@ -12,7 +13,4 @@
     <%= link_to request.instrument, request_path(request) %></li>
   <% end %>
   </ul>
-  <br>
-  <p><%= link_to 'Create request', new_request_path, class: "br-button" %></p>
-
 </div>
