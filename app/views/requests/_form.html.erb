@@ -1,15 +1,17 @@
-  <div class='container'>
-    <%= simple_form_for(@request) do |f| %>
-    <%= f.input :instrument, collection: Request::INSTRUMENTS %>
-    <%= f.input :service, collection: Request::SERVICES %>
-    <%= f.input :location, collection: Request::STATES %>
-    <%= f.input :description %>
+<div class='container'>
+  <%# Disable some input field if the current user is a tech %>
+  <% is_disabled = current_user.role.eql?("tech") %>
+  <%= simple_form_for(@request) do |f| %>
+    <%= f.input :instrument, disabled: is_disabled, collection: Request::INSTRUMENTS %>
+    <%= f.input :service, disabled: is_disabled, collection: Request::SERVICES %>
+    <%= f.input :location, disabled: is_disabled, collection: Request::STATES %>
+    <%= f.input :description, disabled: is_disabled %>
     <% unless @request.status.eql?('Aberta') || current_user.role.eql?("citizen") %>
       <%= f.input :report %>
       <%= f.input :status, as: :radio_buttons, collection: [['0', 'Aberta'], ['1', 'Em andamento'], ['2', 'Realizada']], label_method: :second, value_method: :second %>
     <% end %>
 
     <%= f.submit 'Submit', class: "br-button" %>
-    <%= link_to 'Back', requests_path, class: "br-button"  %>
+    <%= link_to 'Back', request_path(@request), class: "br-button"  %>
   <% end %>
-  </div>
+</div>

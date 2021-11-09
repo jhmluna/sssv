@@ -12,13 +12,13 @@ puts "..."
 # Users
 citizen1 = User.create!(full_name: 'John Snow', email: 'citizen1@gmail.com', password: '123456')
 citizen2 = User.create!(full_name: 'Daenerys Targaryen', email: 'citizen2@gmail.com', password: '123456')
-citizen3 = User.create!(full_name: 'Cidadão Instigado', email: 'citizen3@gmail.com', password: '123456')
-citizen4 = User.create!(full_name: 'Citizen Irritado', email: 'citizen4@gmail.com', password: '123456')
-tech_mt = User.create!(full_name: 'Tyrion Lannister', email: 'tech-mt@gmail.com', password: '123456', role: 'tech', location: 'Mato Grosso')
-tech_mg = User.create!(full_name: 'Servidor Atarefado', email: 'tech-mg@gmail.com', password: '123456', role: 'tech', location: 'Minas Gerais')
-tech_rj = User.create!(full_name: 'Tech Irritado', email: 'tech-rj@gmail.com', password: '123456', role: 'tech', location: 'Rio de Janeiro')
+citizen3 = User.create!(full_name: 'Eddard "Ned" Stark', email: 'citizen3@gmail.com', password: '123456')
+citizen4 = User.create!(full_name: 'Robert Baratheon', email: 'citizen4@gmail.com', password: '123456')
+tech_mt = User.create!(full_name: 'Tyrion Lannister', email: 'tech_mt@gmail.com', password: '123456', role: 'tech', location: 'Mato Grosso')
+tech_mg = User.create!(full_name: 'Sandor Clegane', email: 'tech_mg@gmail.com', password: '123456', role: 'tech', location: 'Minas Gerais')
+tech_rj = User.create!(full_name: 'Khal Drogo', email: 'tech_rj@gmail.com', password: '123456', role: 'tech', location: 'Rio de Janeiro')
 tech_mt2 = User.create!(full_name: 'Augusto Mendonça', email: 'augustoapo@gmail.com', password: '123456', role: 'tech', location: 'Mato Grosso')
-manager = User.create!(full_name: 'Gerente Irritado', email: 'manager@gmail.com', password: '123456', role: 'manager', location: 'Rio de Janeiro')
+manager = User.create!(full_name: 'Stannis Baratheon', email: 'manager@gmail.com', password: '123456', role: 'manager', location: 'Rio de Janeiro')
 
 # Requests
 Request.create!(instrument: 'Medidor de Água', service: 'Verification', citizen: citizen1, location: 'Mato Grosso', description: 'Serviço de verificação do medidor de água')
