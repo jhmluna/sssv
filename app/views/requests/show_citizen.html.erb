@@ -1,28 +1,55 @@
 <div class="container">
-
   <div class="row justify-content-center">
     <div class="col col-lg-10 col-xl-8">
-      <h1>Info about Request</h1>
+      <h2 class="my-3">Request detail</h2>
       <div class="px-sm-3 br-card">
         <div class="card-header border-solid-none bg-white">
-          <p class="h5 text-primary-default mb-0">Maria Amorim</p>
-          <span>UX Designer</span>
+            <div class="row form-group align-items-center">
+              <label class="col-sm-3 col-form-label text-left">Request nº</label>
+              <div class="col">
+                <p class="mb-0"><%= @request.id %></p>
+              </div>
+            </div>
         </div>
         <div class="card-content">
-          <p><b> Instrument: </b><%= @request.instrument %> </p>
-          <p><b> Service: </b><%= @request.service %> </p>
-          <p><b> Location: </b><%= @request.location %> </p>
-          <p><b> Status: </b><%= @request.status %> </p>
-          <p><b> Description: </b><%= @request.description %> </p>
+          <div class="row form-group align-items-center">
+            <label class="col-sm-3 col-form-label text-left">Instrument:</label>
+            <div class="col">
+              <p class="mb-0"><%= @request.instrument %></p>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <label class="col-sm-3 col-form-label text-left">Service:</label>
+            <div class="col">
+              <p class="mb-0"><%= @request.service %></p>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <label class="col-sm-3 col-form-label text-left">Location:</label>
+            <div class="col">
+              <p class="mb-0"><%= @request.location %></p>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <label class="col-sm-3 col-form-label text-left">Status:</label>
+            <div class="col">
+              <p class="mb-0"><%= @request.status %></p>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <label class="col-sm-3 col-form-label text-left">Description</label>
+            <div class="col">
+              <p class="mb-0"><%= @request.description %></p>
+            </div>
+          </div>
           <% unless @request.status.eql?('Aberta') %>
             <p><b> Report: </b><%= @request.report %> </p>
           <% end %>
         </div>
-
         <div class="card-footer border-solid-none bg-white">
-            <div class="row justify-content-around">
-              <%= link_to 'Back', requests_path, class: "br-button" %>
-              <%= link_to 'Edit', edit_request_path(@request), class: "br-button" %>
+          <div class="row justify-content-around">
+            <%= link_to 'Back', requests_path, class: "br-button" %>
+            <%= link_to 'Edit', edit_request_path(@request), class: "br-button" %>
           </div>
         </div>
       </div>
