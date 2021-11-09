@@ -1,1 +1,49 @@
 // Specific CSS for your home-page
+.br-breadcrumb .crumb-list .crumb a {
+  cursor: pointer;
+  font-size: var(--font-size-scale-down-0);
+  font-weight: var(--font-weight-medium);
+  max-width: 180px;
+  overflow: hidden;
+}
+
+.br-breadcrumb .crumb-list .crumb[data-active=active] span {
+  color: var(--color-secondary-08);
+  cursor: default;
+  font-size: var(--font-size-scale-down-0);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.br-card {
+  --interactive-rgb: var(--rgb-secondary-08);
+  --card-background: var(--color-secondary-01);
+  --card-back-background: var(--color-secondary-07);
+  --card-margin: var(--spacing-scale-2x);
+  --card-padding: var(--spacing-scale-2x);
+  --card-shadow: var(--surface-shadow-sm);
+  background: var(--card-background);
+  box-shadow: var(--card-shadow);
+  color: var(--card-color);
+  margin-bottom: var(--card-margin);
+}
+
+.visao-servico .titulo {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: #0c326f;
+    line-height: 40px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.visao-servico .titulo .nomes-populares {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #7a7b7e;
+    line-height: 40px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
