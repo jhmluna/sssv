@@ -48,7 +48,7 @@ class RequestsController < ApplicationController
   def get
     # set_request - Substituido pelo before_action
     @request.update(tech: current_user)
-    @request.update(status: "em andamento")
+    @request.update(status: "Em andamento")
     redirect_to requests_path
   end
 

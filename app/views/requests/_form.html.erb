@@ -4,9 +4,9 @@
     <%= f.input :service, collection: Request::SERVICES %>
     <%= f.input :location, collection: Request::STATES %>
     <%= f.input :description %>
-    <% if @request.status != "Aberta" %>
+    <% unless @request.status.eql?('Aberta') || current_user.role.eql?("citizen") %>
       <%= f.input :report %>
-      <%= f.input :status, as: :radio_buttons, collection: [['0', 'Em andamento'], ['1', 'Realizada']], label_method: :second, value_method: :second %>
+      <%= f.input :status, as: :radio_buttons, collection: [['0', 'Aberta'], ['1', 'Em andamento'], ['2', 'Realizada']], label_method: :second, value_method: :second %>
     <% end %>
 
     <%= f.submit 'Submit', class: "br-button" %>
