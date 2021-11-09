@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row justify-content-center mt-3">
+    <div class="col col-lg-10 col-xl-8">
+      <div class="px-sm-3 br-card">
+        <div class="card-header border-solid-none bg-white">
+          <h2 class="my-3 teste">Request details</h2>
+        </div>
+        <div class="card-content">
+          <div class="row form-group align-items-center">
+            <label class="col-sm-4 col-form-label text-left">Request nº:</label>
+            <div class="col">
+              <p class="mb-0"><%= @request.id %></p>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <label class="col-sm-4 col-form-label text-left">Instrument:</label>
+            <div class="col">
+              <p class="mb-0"><%= @request.instrument %></p>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <label class="col-sm-4 col-form-label text-left">Service:</label>
+            <div class="col">
+              <p class="mb-0"><%= @request.service %></p>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <label class="col-sm-4 col-form-label text-left">Location:</label>
+            <div class="col">
+              <p class="mb-0"><%= @request.location %></p>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <label class="col-sm-4 col-form-label text-left">Data da Solicitação:</label>
+            <div class="col">
+              <p class="mb-0"><%= @request.created_at.to_datetime.to_formatted_s(:long) %></p>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <label class="col-sm-4 col-form-label text-left">Status:</label>
+            <div class="col">
+              <p class="mb-0"><%= @request.status %></p>
+            </div>
+          </div>
+          <div class="row form-group align-items-center">
+            <label class="col-sm-4 col-form-label text-left">Description:</label>
+            <div class="col">
+              <p class="mb-0"><%= @request.description %></p>
+            </div>
+          </div>
+          <% unless @request.status.eql?('Aberta') %>
+            <div class="row form-group align-items-center">
+              <label class="col-sm-4 col-form-label text-left">Report:</label>
+              <div class="col">
+                <p class="mb-0"><%= @request.report %></p>
+              </div>
+            </div>
+            <% if current_user.role.eql?("tech") %>
+              <div class="row form-group align-items-center">
+                <label class="col-sm-4 col-form-label text-left">Assigned Tech:</label>
+                <div class="col">
+                  <p class="mb-0"><%= @request.tech.full_name %></p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="card-footer bg-white p-3">
+          <div class="row justify-content-around">
+            <% if @request.status.eql?("Aberta") && current_user.role.eql?("tech") %>
+              <%= link_to 'Get Request', request_get_path(@request), method: :patch, class: "br-button"  %>
+            <% end %>
+            <%= link_to 'Edit', edit_request_path(@request), class: "br-button" %>
+            <%= link_to 'Back', requests_path, class: "br-button" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

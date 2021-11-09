@@ -16,7 +16,6 @@ class RequestsController < ApplicationController
 
   def show
     # set_request - Substituido pelo before_action
-    render view_for_user(:show)
   end
 
   def new
@@ -43,7 +42,6 @@ class RequestsController < ApplicationController
   def update
     # set_request - Substituido pelo before_action
     @request.update(request_params)
-    # raise
     redirect_to request_path(@request)
   end
 

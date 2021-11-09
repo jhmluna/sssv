@@ -9,22 +9,25 @@ puts "Database was cleaned!"
 
 puts "Seeding started."
 puts "..."
-user1 = User.create!(full_name: 'John Snow', email: 'night_watcher@gmail.com', password: '123456', location: 'Mato Grosso')
-user2 = User.create!(full_name: 'Daenerys Targaryen', email: 'stormborn@gmail.com', password: '123456', location: 'Mato Grosso')
-user3 = User.create!(full_name: 'Tyrion Lannister',  email: 'dwarfs@gmail.com', password: '123456', role: 'tech', location: 'Mato Grosso')
-user4 = User.create!(full_name: 'Cidadão Instigado', email: 'citizen@gmail.com', password: '123456', location: 'Minas Gerais')
-user5 = User.create!(full_name: 'Servidor Atarefado', email: 'worker@gmail.com', password: '123456', role: 'tech', location: 'Minas Gerais')
-user6 = User.create!(full_name: 'Citizen Irritado', email: 'citiz@gmail.com', password: '123456', location: 'Rio de Janeiro')
-user7 = User.create!(full_name: 'Tech Irritado', email: 'tech@gmail.com', password: '123456', role: 'tech', location: 'Rio de Janeiro')
-user8 = User.create!(full_name: 'Gerente Irritado', email: 'manager@gmail.com', password: '123456', role: 'manager', location: 'Rio de Janeiro')
-user9 = User.create!(full_name: 'Augusto Mendonça', email: 'augustoapo@gmail.com', password: '123456', role: 'tech', location: 'Mato Grosso')
-Request.create!(instrument: 'Medidor de Água', service: 'Verification', citizen: user1, location: 'Mato Grosso', description: 'Serviço de verificação do medidor de água')
-Request.create!(instrument: 'Medidor de Gás', service: 'Verification', citizen: user1, location: 'Mato Grosso', description: 'Serviço de verificação do medidor de gás')
-Request.create!(instrument: 'Medidor de Energia Elétrica', status: 'Em andamento', service: 'Expertise', citizen: user2, tech: user3, location: 'Mato Grosso', description: 'Serviço de perícia do medidor de energia elétrica')
-Request.create!(instrument: 'Medidor de Gás', service: 'Verification', citizen: user4, location: 'Minas Gerais', description: 'Serviço de verificação do medidor de gás')
-Request.create!(instrument: 'Medidor de Água', status: 'Em andamento', service: 'Verification', citizen: user4, tech: user5, location: 'Minas Gerais',  description: 'Serviço de verificação do medidor de água')
-Request.create!(instrument: 'Medidor de Energia Elétrica', service: 'Expertise', citizen: user5, location: 'Minas Gerais', description: 'Serviço de perícia do medidor de energia elétrica')
-Request.create!(instrument: 'Medidor de Gás', service: 'Verification', citizen: user6, location: 'Rio de Janeiro', description: 'Serviço de verificação do medidor de gás')
-Request.create!(instrument: 'Medidor de Energia Elétrica', status: 'Em andamento', service: 'Expertise', citizen: user6, tech: user7, location: 'Rio de Janeiro', description: 'Serviço de perícia do medidor de energia elétrica')
-Request.create!(instrument: 'Medidor de Água', service: 'Verification', citizen: user6, location: 'Rio de Janeiro', description: 'Serviço de verificação do medidor de água')
+# Users
+citizen1 = User.create!(full_name: 'John Snow', email: 'citizen1@gmail.com', password: '123456')
+citizen2 = User.create!(full_name: 'Daenerys Targaryen', email: 'citizen2@gmail.com', password: '123456')
+citizen3 = User.create!(full_name: 'Cidadão Instigado', email: 'citizen3@gmail.com', password: '123456')
+citizen4 = User.create!(full_name: 'Citizen Irritado', email: 'citizen4@gmail.com', password: '123456')
+tech_mt = User.create!(full_name: 'Tyrion Lannister', email: 'tech-mt@gmail.com', password: '123456', role: 'tech', location: 'Mato Grosso')
+tech_mg = User.create!(full_name: 'Servidor Atarefado', email: 'tech-mg@gmail.com', password: '123456', role: 'tech', location: 'Minas Gerais')
+tech_rj = User.create!(full_name: 'Tech Irritado', email: 'tech-rj@gmail.com', password: '123456', role: 'tech', location: 'Rio de Janeiro')
+tech_mt2 = User.create!(full_name: 'Augusto Mendonça', email: 'augustoapo@gmail.com', password: '123456', role: 'tech', location: 'Mato Grosso')
+manager = User.create!(full_name: 'Gerente Irritado', email: 'manager@gmail.com', password: '123456', role: 'manager', location: 'Rio de Janeiro')
+
+# Requests
+Request.create!(instrument: 'Medidor de Água', service: 'Verification', citizen: citizen1, location: 'Mato Grosso', description: 'Serviço de verificação do medidor de água')
+Request.create!(instrument: 'Medidor de Gás', service: 'Verification', citizen: citizen1, location: 'Mato Grosso', description: 'Serviço de verificação do medidor de gás')
+Request.create!(instrument: 'Medidor de Energia Elétrica', status: 'Em andamento', service: 'Expertise', citizen: citizen2, tech: tech_mt, location: 'Mato Grosso', description: 'Serviço de perícia do medidor de energia elétrica')
+Request.create!(instrument: 'Medidor de Gás', service: 'Verification', citizen: citizen3, location: 'Minas Gerais', description: 'Serviço de verificação do medidor de gás')
+Request.create!(instrument: 'Medidor de Água', status: 'Em andamento', service: 'Verification', citizen: citizen3, tech: tech_mg, location: 'Minas Gerais',  description: 'Serviço de verificação do medidor de água')
+Request.create!(instrument: 'Medidor de Energia Elétrica', service: 'Expertise', citizen: tech_mg, location: 'Minas Gerais', description: 'Serviço de perícia do medidor de energia elétrica')
+Request.create!(instrument: 'Medidor de Gás', service: 'Verification', citizen: citizen3, location: 'Rio de Janeiro', description: 'Serviço de verificação do medidor de gás')
+Request.create!(instrument: 'Medidor de Energia Elétrica', status: 'Em andamento', service: 'Expertise', citizen: citizen3, tech: tech_rj, location: 'Rio de Janeiro', description: 'Serviço de perícia do medidor de energia elétrica')
+Request.create!(instrument: 'Medidor de Água', service: 'Verification', citizen: citizen3, location: 'Rio de Janeiro', description: 'Serviço de verificação do medidor de água')
 puts "Seed completed!"
