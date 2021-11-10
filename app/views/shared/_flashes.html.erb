@@ -1,16 +1,28 @@
 <% if notice %>
-  <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
-    <%= notice %>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
+  <div class="br-message success" role="alert">
+    <div class="icon">
+      <i class="fas fa-check-circle fa-lg" aria-hidden="true"></i>
+    </div>
+    <div class="content">
+      <strong>Success.</strong><span><%= notice %></span>
+    </div>
+    <div class="close">
+      <button class="br-button circle small" type="button" aria-label="Fechar"><i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
   </div>
 <% end %>
 <% if alert %>
-  <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
-    <%= alert %>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
+  <div class="br-message warning" role="alert">
+    <div class="icon">
+      <i class="fas fa-exclamation-triangle fa-lg" aria-hidden="true"></i>
+    </div>
+    <div class="content">
+      <strong>Atention.</strong><span><%= alert %></span>
+    </div>
+    <div class="close">
+      <button class="br-button circle small" type="button" aria-label="Fechar"><i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
   </div>
 <% end %>
