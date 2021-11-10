@@ -55,7 +55,7 @@
                 <p class="mb-0"><%= @request.report %></p>
               </div>
             </div>
-            <% if current_user.role.eql?("tech") %>
+            <% unless current_user.role.eql?("citizen") %>
               <div class="row form-group align-items-center">
                 <label class="col-sm-4 col-form-label text-left">Assigned Tech:</label>
                 <div class="col">
