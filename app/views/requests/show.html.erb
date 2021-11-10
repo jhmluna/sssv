@@ -79,6 +79,7 @@
               <% when "Em andamento" %>
                 <% if current_user.role.eql?("tech") %>
                   <%= link_to 'Update Report', edit_request_path(@request), class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
+                  <%= link_to 'Conclude', request_conclude_path(@request), method: :patch, class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
                 <% end %>
             <% end %>
           </div>

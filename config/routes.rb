@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :requests, except: :destroy
   # Update requests
   patch 'requests/get/:id', to: 'requests#get', as: :request_get
+  # Solve requests
+  patch 'requests/conclude/:id', to: 'requests#conclude', as: :request_conclude
 
   # Redirect to index page on successful sign in
   get '/user' => "requests#index", :as => :user_root
