@@ -19,9 +19,9 @@
           <button class="br-item" type="button">Solved</button>
           <button class="br-item" type="button">All</button>
           -->
-          <%= link_to 'Abertas', requests_path(query: "Aberta"), class: "br-item" %>
-          <%= link_to 'Em andamento', requests_path(query: "Em andamento"), class: "br-item" %>
-          <%= link_to 'Realizada', requests_path(query: "Realizadas"), class: "br-item" %>        </div>
+          <%= link_to 'Aberta', requests_path(query: "Aberta"), class: "br-item", turbolinks:false %>
+          <%= link_to 'Em andamento', requests_path(query: "Em andamento"), class: "br-item", turbolinks:false %>
+          <%= link_to 'Realizada', requests_path(query: "Realizada"), class: "br-item", turbolinks:false %>        </div>
       </div>
 
       <!-- Ativador de busca -->
@@ -70,14 +70,18 @@
     <caption>Requests</caption>
     <thead>
       <tr>
+        <th scope="col">Request Number</th>
         <th scope="col">Equipment</th>
+        <th scope="col">Service</th>
         <th scope="col">Status</th>
       </tr>
     </thead>
     <tbody>
       <% @requests.each do |request| %>
         <tr>
+          <td><%= request.id %></td>
           <td><%= link_to request.instrument, request_path(request) %></td>
+          <td><%= request.service %></td>
           <td><%= request.status %></td>
         </tr>
       <% end %>
