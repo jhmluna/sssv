@@ -41,8 +41,11 @@ class RequestsController < ApplicationController
 
   def update
     # set_request - Substituido pelo before_action
-    @request.update(request_params)
-    redirect_to request_path(@request)
+    if @request.update(request_params)
+      redirect_to request_path(@request), notice: 'Request was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def get

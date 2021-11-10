@@ -11,7 +11,9 @@
       <%= f.input :status, as: :radio_buttons, collection: [['0', 'Aberta'], ['1', 'Em andamento'], ['2', 'Realizada']], label_method: :second, value_method: :second %>
     <% end %>
 
-    <%= f.submit 'Submit', class: "br-button" %>
-    <%= link_to 'Back', request_path(@request), class: "br-button"  %>
+    <div class="d-flex justify-content-end mb-3">
+      <%= link_to 'Back', requests_path, class: "br-button secondary mt-3 mt-sm-0 mx-sm-3" %>
+      <%= f.submit 'Save', class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
+    </div>
   <% end %>
 </div>
