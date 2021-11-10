@@ -9,8 +9,9 @@ body {
 
 .br-footer {
   position: absolute;
-  bottom: -200px;
+  bottom: -360px;
   width: 100%;
+  height: auto;
   --footer-background: var(--color-primary-darken-02);
   --footer-color: var(--color-secondary-01);
   --footer-border: var(--color-secondary-04);
@@ -52,41 +53,6 @@ body {
   --focus-color: var(--gold-vivid-20);
   --focus: var(--gold-vivid-20);
   --active: var(--pure-0);
-}
-.br-footer[inverted], .br-footer.inverted {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  --footer-background: var(--bg-color);
-  --footer-color: var(--text-color);
-  --color: var(--color-light);
-  --color-rgb: var(--color-light-rgb);
-  --color-hsl: var(--color-light-hsl);
-  --text-color: var(--color);
-  --interactive: var(--interactive-light);
-  --interactive-rgb: var(--interactive-light-rgb);
-  --interactive-hsl: var(--interactive-light-hsl);
-  --visited: var(--blue-warm-vivid-80);
-  --hover: var(--surface-opacity-xs);
-  --pressed: var(--surface-opacity-md);
-  --focus-color: var(--gold-vivid-40);
-  --focus: var(--gold-vivid-40);
-  --active: var(--blue-warm-vivid-80);
-}
-.br-footer[inverted] .br-item, .br-footer.inverted .br-item {
-  --color: var(--color-light);
-  --color-rgb: var(--color-light-rgb);
-  --color-hsl: var(--color-light-hsl);
-  --text-color: var(--color);
-  --interactive: var(--interactive-light);
-  --interactive-rgb: var(--interactive-light-rgb);
-  --interactive-hsl: var(--interactive-light-hsl);
-  --visited: var(--blue-warm-vivid-80);
-  --hover: var(--surface-opacity-xs);
-  --pressed: var(--surface-opacity-md);
-  --focus-color: var(--gold-vivid-40);
-  --focus: var(--gold-vivid-40);
-  --active: var(--blue-warm-vivid-80);
 }
 .br-footer .logo {
   padding: var(--footer-logo-padding);
@@ -131,10 +97,7 @@ body {
 .br-footer .br-list.horizontal .header {
   width: 100%;
 }
-.br-footer .br-list.horizontal .br-item,
-.br-footer .br-list.horizontal .br-list .br-item {
-  height: 4em;
-}
+
 .br-footer .br-list.horizontal .br-item .content,
 .br-footer .br-list.horizontal .br-list .br-item .content {
   box-orient: vertical;
