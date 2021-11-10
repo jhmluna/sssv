@@ -1,0 +1,18 @@
+// Hide image on small screens
+@media (max-width:992px) {
+  #login-image {
+    display: none;
+  }
+}
+
+.forgot-pass {
+  text-decoration: underline;
+  color: #1351B4;
+  margin: 28px 0 0 0;
+  font-size: 1.2em;
+}
+
+.signup-link {
+  text-align: center;
+  color: #1351B4;
+}
