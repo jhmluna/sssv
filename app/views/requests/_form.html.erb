@@ -9,7 +9,6 @@
     <% unless @request.status.eql?('Aberta') || current_user.role.eql?("citizen") %>
       <%= f.input :report, label: "Relatório" %>
       <%= f.input :status, collection: Request::STATUS %>
-      <%#= f.input :status, as: :radio_buttons, collection: [['0', 'Aberta'], ['1', 'Em andamento'], ['2', 'Realizada']], label_method: :second, value_method: :second %>
     <% end %>
 
     <div class="d-flex justify-content-end mb-3">
