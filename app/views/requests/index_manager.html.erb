@@ -13,15 +13,10 @@
           <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
         </button>
         <div class="br-list" id="id-target" aria-hidden="true" hidden>
-          <!--
-          <button class="br-item" type="button">Opened</button>
-          <button class="br-item" type="button">Assigned</button>
-          <button class="br-item" type="button">Solved</button>
-          <button class="br-item" type="button">All</button>
-          -->
-          <%= link_to 'Abertas', requests_path(query: "Aberta"), class: "br-item" %>
-          <%= link_to 'Em andamento', requests_path(query: "Em andamento"), class: "br-item" %>
-          <%= link_to 'Realizada', requests_path(query: "Realizadas"), class: "br-item" %>        </div>
+          <%= link_to 'Abertas', requests_path(query: "Aberta"), class: "br-item text-decoration-none" %>
+          <%= link_to 'Em andamento', requests_path(query: "Em andamento"), class: "br-item text-decoration-none" %>
+          <%= link_to 'Realizadas', requests_path(query: "Realizada"), class: "br-item text-decoration-none" %>
+        </div>
       </div>
 
       <!-- Ativador de busca -->
