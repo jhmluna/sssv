@@ -3,83 +3,55 @@
     <div class="col col-lg-10 col-xl-8">
       <div class="px-sm-3 br-card">
         <div class="card-header border-solid-none bg-white">
-          <h2 class="my-3">Request details</h2>
+          <h2 class="my-3">Detalhes da Requisição</h2>
         </div>
         <div class="card-content">
-          <div class="row form-group align-items-center">
-            <label class="col-sm-4 col-form-label text-left">Request nº:</label>
-            <div class="col">
-              <p class="mb-0"><%= @request.id %></p>
-            </div>
-          </div>
-          <div class="row form-group align-items-center">
-            <label class="col-sm-4 col-form-label text-left">Instrument:</label>
-            <div class="col">
-              <p class="mb-0"><%= @request.instrument %></p>
-            </div>
-          </div>
-          <div class="row form-group align-items-center">
-            <label class="col-sm-4 col-form-label text-left">Service:</label>
-            <div class="col">
-              <p class="mb-0"><%= @request.service %></p>
-            </div>
-          </div>
-          <div class="row form-group align-items-center">
-            <label class="col-sm-4 col-form-label text-left">Location:</label>
-            <div class="col">
-              <p class="mb-0"><%= @request.location %></p>
-            </div>
-          </div>
-          <div class="row form-group align-items-center">
-            <label class="col-sm-4 col-form-label text-left">Data da Solicitação:</label>
-            <div class="col">
-              <p class="mb-0"><%= @request.created_at.to_datetime.to_formatted_s(:long) %></p>
-            </div>
-          </div>
-          <div class="row form-group align-items-center">
-            <label class="col-sm-4 col-form-label text-left">Status:</label>
-            <div class="col">
-              <p class="mb-0"><%= @request.status %></p>
-            </div>
-          </div>
-          <div class="row form-group align-items-center">
-            <label class="col-sm-4 col-form-label text-left">Description:</label>
-            <div class="col">
-              <p class="mb-0"><%= @request.description %></p>
-            </div>
-          </div>
-          <% unless @request.status.eql?('Aberta') %>
-            <div class="row form-group align-items-center">
-              <label class="col-sm-4 col-form-label text-left">Report:</label>
-              <div class="col">
-                <p class="mb-0"><%= @request.report %></p>
-              </div>
-            </div>
-            <% unless current_user.role.eql?("citizen") %>
-              <div class="row form-group align-items-center">
-                <label class="col-sm-4 col-form-label text-left">Assigned Tech:</label>
-                <div class="col">
-                  <p class="mb-0"><%= @request.tech.full_name %></p>
-                </div>
-              </div>
+          <dl class="row">
+            <dt class="col-md-4">Requisição nº:</dt>
+            <dd class="col-md-8"><%= @request.id %></dd>
+
+            <dt class="col-md-4">Instrumento:</dt>
+            <dd class="col-md-8"><%= @request.instrument %></dd>
+
+            <dt class="col-md-4">Serviço:</dt>
+            <dd class="col-md-8"><%= @request.service %></dd>
+
+            <dt class="col-md-4">Localização:</dt>
+            <dd class="col-md-8"><%= @request.location %></dd>
+
+            <dt class="col-md-4">Data da Solicitação:</dt>
+            <dd class="col-md-8"><%= @request.created_at.to_datetime.to_formatted_s(:long) %></dd>
+
+            <dt class="col-md-4">Status:</dt>
+            <dd class="col-md-8"><%= @request.status %></dd>
+
+            <dt class="col-md-4">Descrição:</dt>
+            <dd class="col-md-8"><%= @request.description %></dd>
+            <% unless @request.status.eql?('Aberta') %>
+              <dt class="col-md-4">Relatório:</dt>
+              <dd class="col-md-8"><%= @request.report %></dd>
+              <% unless current_user.role.eql?("citizen") %>
+                <dt class="col-md-4">Técnico Designado:</dt>
+                <dd class="col-md-8"><%= @request.tech.full_name %></dd>
+              <% end %>
             <% end %>
-          <% end %>
+          </dl>
         </div>
         <div class="card-footer bg-white p-3">
           <div class="row justify-content-end">
-            <%= link_to 'Back', requests_path, class: "br-button secondary mt-3 mt-sm-0 mx-sm-3" %>
+            <%= link_to 'Voltar', requests_path, class: "br-button secondary mt-3 mt-sm-0 mx-sm-3" %>
             <% case @request.status %>
               <% when "Aberta" %>
                 <% case current_user.role %>
                   <% when "tech" %>
                     <%= link_to 'Get Request', request_get_path(@request), method: :patch, class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
                   <% when "citizen" %>
-                    <%= link_to 'Edit', edit_request_path(@request), class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
+                    <%= link_to 'Editar', edit_request_path(@request), class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
                 <% end %>
               <% when "Em andamento" %>
                 <% if current_user.role.eql?("tech") %>
-                  <%= link_to 'Update Report', edit_request_path(@request), class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
-                  <%= link_to 'Conclude', request_conclude_path(@request), method: :patch, class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
+                  <%= link_to 'Atualizar', edit_request_path(@request), class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
+                  <%= link_to 'Concluir', request_conclude_path(@request), method: :patch, class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
                 <% end %>
             <% end %>
           </div>
