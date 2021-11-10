@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: %i[get show edit update]
+  before_action :set_request, only: %i[get conclude show edit update]
 
   def index
     # case current_user.role
@@ -55,14 +55,23 @@ class RequestsController < ApplicationController
 
   def update
     # set_request - Substituido pelo before_action
-    @request.update(request_params)
-    redirect_to request_path(@request)
+    @request.update(tech: nil) if request_params["status"].eql?("Aberta")
+    if @request.update(request_params)
+      redirect_to request_path(@request), notice: 'Request was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def get
     # set_request - Substituido pelo before_action
-    @request.update(tech: current_user)
-    @request.update(status: "em andamento")
+    @request.update(tech: current_user, status: "Em andamento")
+    redirect_to requests_path
+  end
+
+  def conclude
+    # set_request - Substituido pelo before_action
+    @request.update(status: "Realizada")
     redirect_to requests_path
   end
 

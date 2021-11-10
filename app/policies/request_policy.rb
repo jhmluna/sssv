@@ -29,6 +29,11 @@ class RequestPolicy < ApplicationPolicy
     owner_or_employee?
   end
 
+  def conclude?
+    owner_or_employee?
+  end
+
+
   #def destroy?
   #  owner_or_employee?
   #end

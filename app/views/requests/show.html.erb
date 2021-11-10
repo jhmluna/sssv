@@ -1,19 +1,62 @@
 <div class="container">
-  <h1 class = "d-flex justify-content-center">Info about Request</h1>
-  <br>
-  <p><b> Instrument:     </b><%= @request.instrument %> </p>
-  <p><b> Service:   </b><%= @request.service %> </p>
-  <p><b> Location: </b><%= @request.location %> </p>
-  <p><b> Status: </b><%= @request.status %> </p>
-  <p><b> Description: </b><%= @request.description %> </p>
-  <% if @request.status != "Aberta" %>
-    <p><b> Report: </b><%= @request.report %> </p>
-  <% end %>
-  <br>
-  <%= link_to 'Edit', edit_request_path(@request), class: "br-button"   %>
+  <div class="row justify-content-center mt-3">
+    <div class="col col-lg-10 col-xl-8">
+      <div class="px-sm-3 br-card">
+        <div class="card-header border-solid-none bg-white">
+          <h2 class="my-3">Detalhes da Requisição</h2>
+        </div>
+        <div class="card-content">
+          <dl class="row">
+            <dt class="col-md-4">Requisição nº:</dt>
+            <dd class="col-md-8"><%= @request.id %></dd>
 
-  <% if @request.status == "Aberta" && current_user.role == "tech" %>
-    <%= link_to 'Get Request', request_get_path(@request), method: :patch, class: "br-button"  %>
-  <% end %>
-  <%= link_to 'Back', requests_path, class: "br-button"  %>
+            <dt class="col-md-4">Instrumento:</dt>
+            <dd class="col-md-8"><%= @request.instrument %></dd>
+
+            <dt class="col-md-4">Serviço:</dt>
+            <dd class="col-md-8"><%= @request.service %></dd>
+
+            <dt class="col-md-4">Localização:</dt>
+            <dd class="col-md-8"><%= @request.location %></dd>
+
+            <dt class="col-md-4">Data da Solicitação:</dt>
+            <dd class="col-md-8"><%= @request.created_at.to_datetime.to_formatted_s(:long) %></dd>
+
+            <dt class="col-md-4">Status:</dt>
+            <dd class="col-md-8"><%= @request.status %></dd>
+
+            <dt class="col-md-4">Descrição:</dt>
+            <dd class="col-md-8"><%= @request.description %></dd>
+            <% unless @request.status.eql?('Aberta') %>
+              <dt class="col-md-4">Relatório:</dt>
+              <dd class="col-md-8"><%= @request.report %></dd>
+              <% unless current_user.role.eql?("citizen") %>
+                <dt class="col-md-4">Técnico Designado:</dt>
+                <dd class="col-md-8"><%= @request.tech.full_name %></dd>
+              <% end %>
+            <% end %>
+          </dl>
+        </div>
+        <div class="card-footer bg-white p-3">
+          <div class="row justify-content-end">
+            <%= link_to 'Voltar', requests_path, class: "br-button secondary mt-3 mt-sm-0 mx-sm-3" %>
+            <% case @request.status %>
+              <% when "Aberta" %>
+                <% case current_user.role %>
+                  <% when "tech" %>
+                    <%= link_to 'Get Request', request_get_path(@request), method: :patch, class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
+                  <% when "citizen" %>
+                    <%= link_to 'Editar', edit_request_path(@request), class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
+                <% end %>
+              <% when "Em andamento" %>
+                <% if current_user.role.eql?("tech") %>
+                  <%= link_to 'Atualizar', edit_request_path(@request), class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
+                  <%= link_to 'Concluir', request_conclude_path(@request), method: :patch, class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
+                <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
