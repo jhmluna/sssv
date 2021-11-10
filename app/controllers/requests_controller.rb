@@ -4,7 +4,7 @@ class RequestsController < ApplicationController
   def index
     case current_user.role
     when "manager"
-      @requests = policy_scope(Request.where(location: current_user.location))
+      @requests = policy_scope(Request)
     when "tech"
       @requests = policy_scope(Request.where(tech: nil, location: current_user.location).or(Request.where(tech: current_user, location: current_user.location)))
     when "citizen"
