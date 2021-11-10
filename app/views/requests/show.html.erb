@@ -66,22 +66,21 @@
           <% end %>
         </div>
         <div class="card-footer bg-white p-3">
-          <div class="row justify-content-around">
+          <div class="row justify-content-end">
+            <%= link_to 'Back', requests_path, class: "br-button secondary mt-3 mt-sm-0 mx-sm-3" %>
             <% case @request.status %>
               <% when "Aberta" %>
                 <% case current_user.role %>
                   <% when "tech" %>
-                    <%= link_to 'Get Request', request_get_path(@request), method: :patch, class: "br-button" %>
+                    <%= link_to 'Get Request', request_get_path(@request), method: :patch, class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
                   <% when "citizen" %>
-                    <%= link_to 'Edit', edit_request_path(@request), class: "br-button" %>
+                    <%= link_to 'Edit', edit_request_path(@request), class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
                 <% end %>
               <% when "Em andamento" %>
                 <% if current_user.role.eql?("tech") %>
-                  <%= link_to 'Update Report', edit_request_path(@request), class: "br-button" %>
+                  <%= link_to 'Update Report', edit_request_path(@request), class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
                 <% end %>
             <% end %>
-
-            <%= link_to 'Back', requests_path, class: "br-button" %>
           </div>
         </div>
       </div>
