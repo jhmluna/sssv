@@ -41,6 +41,7 @@ class RequestsController < ApplicationController
 
   def update
     # set_request - Substituido pelo before_action
+    @request.update(tech: nil) if request_params["status"].eql?("Aberta")
     if @request.update(request_params)
       redirect_to request_path(@request), notice: 'Request was successfully updated.'
     else
