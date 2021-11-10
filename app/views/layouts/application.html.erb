@@ -18,10 +18,15 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
+    <% unless action_name == 'home' %>
+      <%= render 'shared/navbar' %>
+    <% end %>
+
     <%= render 'shared/flashes' %>
 
     <%= yield %>
+
+    <%= render 'shared/footer' %>
 
     <%= javascript_include_tag "https://dsgov.estaleiro.serpro.gov.br/assets/design-system/dist/dsgov.min.js" %>
     <!-- Scripts de componentes -->
