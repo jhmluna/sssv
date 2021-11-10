@@ -17,7 +17,7 @@ body {
   --footer-border: var(--color-secondary-04);
   --footer-logo-height: 48px;
   --footer-logo-width: 180px;
-  --footer-logo-padding: var(--spacing-scale-6x) 0 var(--spacing-scale-4x);
+  --footer-logo-padding: var(--spacing-scale-4x) 0 var(--spacing-scale-2x);
   --footer-assigns-height: 46px;
   --footer-assigns-width: 180px;
   background: var(--footer-background);
@@ -153,6 +153,15 @@ body {
   line-height: 2em;
 }
 
+.br-footer a {
+  color: #f8f8f8;
+  text-decoration: none;
+  background-color: transparent;
+}
 
+.br-footer a:hover {
+    color: #035ac1;
+    text-decoration: none;
+}
 
 /*# sourceMappingURL=footer.css.map*/
