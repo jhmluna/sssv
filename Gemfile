@@ -72,3 +72,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Authorization
 gem 'pundit'
+
+# Translate Devise
+gem 'devise-i18n'
