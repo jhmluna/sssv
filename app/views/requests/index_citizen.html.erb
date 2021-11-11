@@ -2,20 +2,10 @@
   <div class="row justify-content-center">
     <div class="col col-lg-10 col-xl-8">
       <div class="row header-space">
-        <h1><span class="blue-word">Seu</span> Sistema de Requisição</h1>
+        <h1><span class="blue-word">Sua</span> Lista de Requisições</h1>
       </div>
       <div class="row header-text">
-        <p>Olá <strong> <%= current_user.full_name %>. </strong> Aqui é o espaço para gerenciar seu perfil e suas solicitações ao Inmetro</p>
-      </div>
-      <div class="row mt-1 px-sm-10xh">
-        <div class="col">
-          <i class="far fa-user"></i>
-          <p class="text-center">Perfil</p>
-        </div>
-        <div class="col">
-          <i class="fas fa-scroll"></i>
-          <p class="text-center">Solicitações</p>
-        </div>
+        <p><strong> <%= current_user.full_name %>, </strong> aqui é o espaço para acompanhar suas solicitações ao Inmetro</p>
       </div>
 
       <div class="row">
@@ -32,7 +22,10 @@
         </ul>
         <br>
       </div>
-      <p><%= link_to 'Create request', new_request_path, class: "br-button" %></p>
+      <div class="row justify-content-end">
+        <%= link_to 'Voltar', pages_path, class: "br-button secondary mt-3 mt-sm-0" %>
+        <p><%= link_to 'Criar Requisição', new_request_path, class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %></p>
+      </div>
     </div>
   </div>
 </div>
