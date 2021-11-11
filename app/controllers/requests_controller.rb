@@ -9,13 +9,12 @@ class RequestsController < ApplicationController
       else
         @requests = policy_scope(Request.where(status: params[:query]))
       end
+      render action: "index_manager" and return
     when "tech"
       @requests = policy_scope(Request.where(tech: nil, location: current_user.location).or(Request.where(tech: current_user, location: current_user.location)))
     when "citizen"
       @requests = policy_scope(Request.where(citizen: current_user))
     end
-    # Find the correct index view to render based on user role
-    render view_for_user(:index)
   end
 
   def show
