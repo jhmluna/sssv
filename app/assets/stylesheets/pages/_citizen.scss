@@ -1,0 +1,30 @@
+.header-space {
+  margin-top: 25px;
+  font-style: italic;
+}
+
+.header-space span {
+  color: #46ad44;
+  font-size: 1.55rem;
+}
+
+.header-space h1 {
+  color: #2864ae;
+}
+
+.header-text {
+  color: #555555;
+  font-size: 16px;
+  font-style: italic;
+}
+
+// For center align icons
+[class^="fa"], [class*=" fa-"] {
+    display: inline-block;
+    width: 100%;
+}
+
+.card i {
+  font-size: 65px;
+  text-align: center;
+}
