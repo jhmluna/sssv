@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col col-lg-10 col-xl-8">
+      <div class="row header-space">
+        <h1><span class="blue-word">Seu</span> Sistema de Requisição</h1>
+      </div>
+      <div class="row header-text">
+        <p>Olá <strong> <%= current_user.full_name %>. </strong> Aqui é o espaço para gerenciar seu perfil e suas solicitações ao Inmetro</p>
+      </div>
+      <div class="row mt-1 px-sm-10xh">
+        <div class="col mr-3">
+          <%= link_to page_path(current_user), :class => "requests-link" do %>
+            <div>
+              <i class="bi bi-person-square"></i>
+              <p class="text-center">Perfil</p>
+            </div>
+          <% end %>
+        </div>
+        <div class="col mr-3">
+          <%= link_to requests_path, :class => "requests-link" do %>
+            <div>
+              <i class="bi bi-receipt"></i>
+              <p class="text-center">Solicitações</p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
