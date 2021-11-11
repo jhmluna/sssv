@@ -1,37 +1,38 @@
 <div class="container">
-  <div class="row header-space">
-    <h1><span class="blue-word">Seu</span> Sistema de Requisição</h1>
-  </div>
-  <div class="row header-text">
-    <p>Olá <strong> <%= current_user.full_name %>. </strong> Aqui é o espaço para gerenciar seu perfil e suas solicitações ao Inmetro</p>
-  </div>
-  <div class="card-group border rounded">
-    <div class="card border-solid-none">
-      <i class="far fa-user"></i>
-      <div class="card-body">
-        <p class="card-text text-center">Perfil</p>
+  <div class="row justify-content-center">
+    <div class="col col-lg-10 col-xl-8">
+      <div class="row header-space">
+        <h1><span class="blue-word">Seu</span> Sistema de Requisição</h1>
       </div>
-    </div>
-    <div class="card border-solid-none">
-      <i class="fas fa-scroll"></i>
-      <div class="card-body">
-        <p class="card-text text-center">Solicitações</p>
+      <div class="row header-text">
+        <p>Olá <strong> <%= current_user.full_name %>. </strong> Aqui é o espaço para gerenciar seu perfil e suas solicitações ao Inmetro</p>
       </div>
+      <div class="row mt-1 px-sm-10xh">
+        <div class="col">
+          <i class="far fa-user"></i>
+          <p class="text-center">Perfil</p>
+        </div>
+        <div class="col">
+          <i class="fas fa-scroll"></i>
+          <p class="text-center">Solicitações</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <ul class="list-group">
+        <% @requests.each do |request| %>
+          <li class="list-group-item" >
+          <% if request.status == 'Realizada'  %>
+            <i class="fas fa-check-square"></i>
+          <% else %>
+            <i class="far fa-square"></i>
+          <% end %>
+          <%= link_to request.instrument, request_path(request) %></li>
+        <% end %>
+        </ul>
+        <br>
+      </div>
+      <p><%= link_to 'Create request', new_request_path, class: "br-button" %></p>
     </div>
   </div>
-  <div class="row">
-    <ul class="list-group">
-    <% @requests.each do |request| %>
-      <li class="list-group-item" >
-      <% if request.status == 'Realizada'  %>
-        <i class="fas fa-check-square"></i>
-      <% else %>
-        <i class="far fa-square"></i>
-      <% end %>
-      <%= link_to request.instrument, request_path(request) %></li>
-    <% end %>
-    </ul>
-    <br>
-  </div>
-  <p><%= link_to 'Create request', new_request_path, class: "br-button" %></p>
 </div>
