@@ -1,22 +1,21 @@
-.navbar-lewagon {
+.br-header.compact {
+  --focus-offset: calc(var(--spacing-scale-half) * -1);
+  align-items: flex-start;
+  display: flex;
   justify-content: space-between;
-  background: white;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.br-header.compact .header-actions {
+  margin-top: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
-.br-header compact {
-  justify-content: space-between;
+.br-divider.vertical {
+  --divider-size: 1px;
 }
 
 .navbar-collapse {
   flex-grow: 0;
+  margin-top: 15px;
 }
 
 .br-button {
