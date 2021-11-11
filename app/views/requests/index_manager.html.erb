@@ -1,111 +1,101 @@
-<div class="br-table" data-search="data-search" data-collapse="data-collapse">
-  <!-- Header da Tabela -->
-  <div class="table-header">
-    <h1 class = "d-flex justify-content-center">Requests View</h1>
-
-    <!-- Barra de Título -->
-    <div class="top-bar">
-      <!-- Título da tabela -->
-      <div class="table-title">Requests List</div>
-      <!-- Ativador de opções -->
-      <div class="actions-trigger text-nowrap">
-        <button class="br-button circle" type="button" title="Ver mais opções" data-toggle="dropdown" data-target="id-target" aria-controls="id-target" aria-expanded="false" data-visible="false">
-          <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
-        </button>
-        <div class="br-list" id="id-target" aria-hidden="true" hidden>
-          <%= link_to 'Abertas', requests_path(query: "Aberta"), class: "br-item text-decoration-none", turbolinks: false %>
-          <%= link_to 'Em andamento', requests_path(query: "Em andamento"), class: "br-item text-decoration-none", turbolinks: false %>
-          <%= link_to 'Realizadas', requests_path(query: "Realizada"), class: "br-item text-decoration-none", turbolinks: false %>
-        </div>
-      </div>
-
-      <!-- Ativador de busca -->
-      <div class="search-trigger">
-        <button class="br-button circle" type="button" data-toggle="search" aria-label="Abrir busca">
-          <i class="fas fa-search" aria-hidden="true"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- Barra de Busca -->
-    <div class="search-bar">
-      <div class="br-input">
-        <label for="table-searchbox-85957">Buscar</label>
-        <input id="table-searchbox-85957" type="text" placeholder="Buscar na descrição"/>
-        <button class="br-button circle" type="button" aria-label="Buscar">
-          <i class="fas fa-search" aria-hidden="true"></i>
-        </button>
-      </div>
-      <button class="br-button circle inverted" type="button" data-dismiss="search" aria-label="Fechar busca">
-        <i class="fas fa-times" aria-hidden="true"></i>
-      </button>
-    </div>
-
-    <!-- Barra de Seleção -->
-    <!--
-    <div class="selected-bar">
-      <div class="info">
-        <span class="count">0</span>
-        <span class="text">item selecionado</span>
-      </div>
-      <div class="actions-trigger">
-        <button class="br-button circle inverted" type="button" title="Ver mais opções" data-toggle="dropdown">
-          <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
-        </button>
-        <div class="br-list">
-          <button class="br-item" type="button" data-toggle="check-all">Selecionar todos</button>
-          <button class="br-item" type="button">Excluir</button>
-        </div>
-      </div>
-    </div>
-    -->
-  </div>
-
-  <table>
-    <caption>Requests</caption>
-    <thead>
-      <tr>
-        <th scope="col">Request Number</th>
-        <th scope="col">Equipment</th>
-        <th scope="col">Service</th>
-        <th scope="col">Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @requests.each do |request| %>
-        <tr>
-          <td><%= request.id %></td>
-          <td><%= link_to request.instrument, request_path(request) %></td>
-          <td><%= request.service %></td>
-          <td><%= request.status %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <!-- Rodapé da Tabela -->
-  <div class="table-footer">
-  <br>
-  <p><%= link_to 'Back to Home', root_path, class: "br-button" %></p>
-</div>
-
-<!--
 <div class="container">
-  <h1 class = "d-flex justify-content-center">List of Requests of Manager</h1>
+  <div class="br-table" data-search="data-search" data-collapse="data-collapse">
+    <!-- Header da Tabela -->
+    <div class="table-header">
+      <h1 class = "d-flex justify-content-center">Visão das Requisições</h1>
 
-  <ul class="list-group">
-  <% @requests.each do |request| %>
-    <li class="list-group-item" >
-    <% if request.status == 'Realizada'  %>
-      <i class="fas fa-check-square"></i>
-    <% else %>
-      <i class="far fa-square"></i>
-    <% end %>
-    <%= link_to request.instrument, request_path(request) %></li>
-  <% end %>
-  </ul>
-  <br>
-  <p><%= link_to 'Create request', new_request_path, class: "br-button" %></p>
+      <!-- Barra de Título -->
+      <div class="top-bar">
+        <!-- Título da tabela -->
+        <div class="table-title">Lista das Requisições</div>
+        <!-- Ativador de opções -->
+        <div class="actions-trigger text-nowrap">
+          <button class="br-button circle" type="button" title="Ver mais opções" data-toggle="dropdown" data-target="id-target" aria-controls="id-target" aria-expanded="false" data-visible="false">
+            <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+          </button>
+          <div class="br-list" id="id-target" aria-hidden="true" hidden>
+            <!--
+            <%= link_to 'Abertas', requests_path(query: "status:Aberta"), class: "br-item text-decoration-none", turbolinks: false %>
+            <%= link_to 'Em andamento', requests_path(query: "status:Em andamento"), class: "br-item text-decoration-none", turbolinks: false %>
+            <%= link_to 'Realizadas', requests_path(query: "status:Realizada"), class: "br-item text-decoration-none", turbolinks: false %>
+            <%= link_to 'Todas', user_root_path, class: "br-item text-decoration-none", turbolinks: false %>
+            -->
+            <%= link_to 'Abertas', requests_path(query: "Aberta"), class: "br-item text-decoration-none", turbolinks: false %>
+            <%= link_to 'Em andamento', requests_path(query: "Em andamento"), class: "br-item text-decoration-none", turbolinks: false %>
+            <%= link_to 'Realizadas', requests_path(query: "Realizada"), class: "br-item text-decoration-none", turbolinks: false %>
+            <%= link_to 'Todas', user_root_path, class: "br-item text-decoration-none", turbolinks: false %>
+          </div>
+        </div>
 
+        <!-- Ativador de busca -->
+        <div class="search-trigger">
+          <button class="br-button circle" type="button" data-toggle="search" aria-label="Iniciar busca">
+            <i class="fas fa-search" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Barra de Busca -->
+      <div class="search-bar">
+        <div class="br-input">
+          <label for="table-searchbox-85957">Buscar</label>
+          <input id="table-searchbox-85957" type="text" placeholder="Buscar na descrição"/>
+          <button class="br-button circle" type="button" aria-label="Buscar">
+            <i class="fas fa-search" aria-hidden="true"></i>
+          </button>
+        </div>
+        <button class="br-button circle inverted" type="button" data-dismiss="search" aria-label="Encerrar busca">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <table>
+      <caption>Requests</caption>
+      <thead>
+        <tr>
+          <th scope="col">Número</th>
+          <th scope="col">Equipamento</th>
+          <th scope="col">Serviço</th>
+          <th scope="col">Status</th>
+          <th scope="col">Criada em</th>
+          <th scope="col">Atualizada em</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @requests.each do |request| %>
+          <tr>
+            <td>
+              <%= "%05d" % request.id %>
+            </td>
+            <td>
+              <%= link_to request.instrument, request_path(request) %>
+            </td>
+            <td>
+              <%= request.service %>
+            </td>
+            <td>
+              <%= request.status %>
+            </td>
+            <td>
+              <%= "%02d" % request.created_at.day %>/<%= "%02d" % request.created_at.month %>/<%= request.created_at.year %>
+              <%= "%02d" % request.created_at.hour %>:<%= "%02d" % request.created_at.min %>
+            </td>
+            <td>
+              <%= "%02d" % request.updated_at.day %>/<%= "%02d" % request.updated_at.month %>/<%= request.updated_at.year %>
+              <%= "%02d" % request.updated_at.hour %>:<%= "%02d" % request.updated_at.min %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <!-- Rodapé da Tabela -->
+    <div class="table-footer">
+      <br>
+      <!--
+      <p><%= link_to 'Retornar para a página inicial', root_path, class: "br-button" %></p>
+      -->
+    </div>
+  </div>
 </div>
--->

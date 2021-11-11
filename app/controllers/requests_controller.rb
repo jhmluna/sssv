@@ -7,6 +7,10 @@ class RequestsController < ApplicationController
       if params[:query].blank?
         @requests = policy_scope(Request)
       else
+        # @requests = (field == "status") ?
+        #   policy_scope(Request.where(status: params[:query].split(':')[1]))
+        #   :
+        #   policy_scope(Request.where(status: params[:query]))
         @requests = policy_scope(Request.where(status: params[:query]))
       end
       render action: "index_manager" and return
