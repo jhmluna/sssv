@@ -2,16 +2,6 @@ class RequestsController < ApplicationController
   before_action :set_request, only: %i[get conclude show edit update]
 
   def index
-    # case current_user.role
-    # when "manager"
-    #   @requests = policy_scope(Request.where(location: current_user.location))
-    # when "tech"
-    #   @requests = policy_scope(Request.where(tech: nil, location: current_user.location).or(Request.where(tech: current_user, location: current_user.location)))
-    # when "citizen"
-    #   @requests = policy_scope(Request.where(citizen: current_user))
-    # end
-    # # Find the correct index view to render based on user role
-    # render view_for_user(:index)
     case current_user.role
     when "manager"
       if params[:query].blank?

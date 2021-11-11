@@ -1,6 +1,8 @@
 .header-space {
   margin-top: 25px;
   font-style: italic;
+  width: 100%;
+  text-align: center;
 }
 
 .header-space span {
@@ -19,7 +21,7 @@
 }
 
 // For center align icons
-[class^="fa"], [class*=" fa-"] {
+[class^="bi"], [class*=" bi-"] {
     display: inline-block;
     width: 100%;
 }
@@ -28,4 +30,17 @@
   font-size: 40px;
   text-align: center;
   margin-bottom: 8px;
+}
+
+.requests-link {
+  color: inherit;
+}
+
+.requests-link:hover {
+  text-decoration: none;
+  color: red;
+}
+
+.bi:hover {
+  color: red;
 }
