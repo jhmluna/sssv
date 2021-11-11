@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   patch 'requests/conclude/:id', to: 'requests#conclude', as: :request_conclude
 
   # Redirect to index page on successful sign in
-  get '/user' => "requests#index", :as => :user_root
+  get '/user' => "pages#index", :as => :user_root
 
   # Blazer dashboard pages
   authenticate :user, ->(user) { user.admin? || user.role == 'manager' } do

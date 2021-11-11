@@ -1,24 +1,30 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col col-lg-10 col-xl-8">
-      <div class="row header-space justify-content-center">
+      <div class="row header-space">
         <h1><span class="blue-word">Seu</span> Sistema de Requisição</h1>
       </div>
-      <div class="row header-text justify-content-center">
+      <div class="row header-text">
         <p>Olá <strong> <%= current_user.full_name %>. </strong> Aqui é o espaço para gerenciar seu perfil e suas solicitações ao Inmetro</p>
       </div>
       <div class="row mt-1 px-sm-10xh">
         <div class="col mr-3">
-          <%# <i class="far fa-user"></i> %>
-          <i class="bi bi-person-square"></i>
-          <p class="text-center"><%= link_to "Perfil", page_path(current_user), class: "requests-link" %></p>
+          <%= link_to page_path(current_user), :class => "requests-link" do %>
+            <div>
+              <i class="bi bi-person-square"></i>
+              <p class="text-center">Perfil</p>
+            </div>
+          <% end %>
         </div>
-        <div class="col ml-3">
-          <i class="fas fa-scroll"></i>
-          <p class="text-center"><%= link_to "Solicitações", requests_path, class: "requests-link stretched-link" %></p>
+        <div class="col mr-3">
+          <%= link_to requests_path, :class => "requests-link" do %>
+            <div>
+              <i class="bi bi-receipt"></i>
+              <p class="text-center">Solicitações</p>
+            </div>
+          <% end %>
         </div>
       </div>
-
       <p><%= link_to 'Create request', new_request_path, class: "br-button" %></p>
     </div>
   </div>

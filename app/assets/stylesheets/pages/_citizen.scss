@@ -1,8 +1,6 @@
 .header-space {
   margin-top: 25px;
   font-style: italic;
-  width: 100%;
-  text-align: center;
 }
 
 .header-space span {
@@ -15,7 +13,7 @@
 }
 
 .header-text {
-  color: #555555;
+  color: #555;
   font-size: 16px;
   font-style: italic;
 }
@@ -26,21 +24,21 @@
     width: 100%;
 }
 
-.col i {
+div i, .col i {
   font-size: 40px;
   text-align: center;
-  margin-bottom: 8px;
 }
 
 .requests-link {
-  color: inherit;
+  color: #555;
 }
 
 .requests-link:hover {
   text-decoration: none;
-  color: red;
+  color: #2864ae;
 }
 
-.bi:hover {
-  color: red;
+.br-item {
+  background-color: $white;
+  margin: 0 45px;;
 }
