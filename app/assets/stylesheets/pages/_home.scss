@@ -29,21 +29,36 @@
 }
 
 .visao-servico .titulo {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
     font-weight: 600;
     color: #0c326f;
-    line-height: 40px;
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
+    line-height: 50px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
-.visao-servico .titulo .nomes-populares {
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: #7a7b7e;
-    line-height: 40px;
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
+.nomes-populares {
+  font-size: 2rem;
+  text-align: center;
+  color: #7a7b7e;
+  line-height: 40px;
+  padding-left: 30px;
+}
+
+.titulo.toggle-link {
+  font-size: 2.5rem;
+}
+
+.br-magic-button .br-button {
+  width: 120px;
+  height: 52px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: left;
+  line-height: 52px;
+  box-sizing: content-box;
+}
+
+#init {
+  margin: 50px 0 50px -50px;
 }
