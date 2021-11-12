@@ -10,7 +10,30 @@
             <p><strong> <%= current_user.full_name %></strong>, aqui você visualiza os detalhes da requisição.</p>
           </div>
         </div>
+
         <div class="card-content">
+          <% if current_user.role.eql?("tech") %>
+            <div class="row header-text">
+              <h4><strong>Dados do requerente</strong></h4>
+            </div>
+            <dl class="row">
+              <dt class="col-md-4 py-2"><span class="detail-type">Nome Completo:</span></dt>
+              <dd class="col-md-8 pt-2 mb-0"><span class="detail-desc"><%= @request.citizen.full_name %></span></dd>
+
+              <dt class="col-md-4 py-2"><span class="detail-type">E-mail:</span></dt>
+              <dd class="col-md-8 pt-2 mb-0"><span class="detail-desc"><%= @request.citizen.email %></span></dd>
+
+              <dt class="col-md-4 py-2"><span class="detail-type">Tel:</span></dt>
+              <dd class="col-md-8 pt-2 mb-0"><span class="detail-desc"><%= @request.citizen.phone_number %></span></dd>
+
+              <dt class="col-md-4 py-2"><span class="detail-type">CPF:</span></dt>
+              <dd class="col-md-8 pt-2 mb-0"><span class="detail-desc"><%= @request.citizen.cpf %></span></dd>
+            </dl>
+            <hr class="solid">
+          <% end %>
+          <div class="row header-text">
+            <h4><strong>Dados da solicitação</strong></h4>
+          </div>
           <dl class="row">
             <dt class="col-md-4 py-2"><span class="detail-type">Instrumento:</span></dt>
             <dd class="col-md-8 pt-2 mb-0"><span class="detail-desc"><%= @request.instrument %></span></dd>
