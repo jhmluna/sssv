@@ -1,6 +1,6 @@
 class Request < ApplicationRecord
   INSTRUMENTS = %w[Medidor\ de\ Energia\ Elétrica Medidor\ de\ Água Medidor\ de\ Gás].freeze
-  SERVICES = %w[Verification Expertise].freeze
+  SERVICES = %w[Verificação Perícia].freeze
   STATES = %w[Acre Alagoas Amapá Amazonas Bahia Ceará Distrito\ Federal Espírito\ Santo Goiás Maranhão Mato\ Grosso
               Mato\ Grosso\ do\ Sul Minas\ Gerais Pará Paraíba Paraná Pernambuco Piauí Rio\ de\ Janeiro
               Rio\ Grande\ do\ Norte Rio\ Grande\ do\ Sul Rondônia Santa\ Catarina São\ Paulo Sergipe Tocantins].freeze
