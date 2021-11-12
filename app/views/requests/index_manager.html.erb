@@ -14,16 +14,12 @@
             <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
           </button>
           <div class="br-list" id="id-target" aria-hidden="true" hidden>
-            <!--
-            <%= link_to 'Abertas', requests_path(query: "status:Aberta"), class: "br-item text-decoration-none", turbolinks: false %>
-            <%= link_to 'Em andamento', requests_path(query: "status:Em andamento"), class: "br-item text-decoration-none", turbolinks: false %>
-            <%= link_to 'Realizadas', requests_path(query: "status:Realizada"), class: "br-item text-decoration-none", turbolinks: false %>
-            <%= link_to 'Todas', user_root_path, class: "br-item text-decoration-none", turbolinks: false %>
-            -->
             <%= link_to 'Abertas', requests_path(query: "Aberta"), class: "br-item text-decoration-none", turbolinks: false %>
             <%= link_to 'Em andamento', requests_path(query: "Em andamento"), class: "br-item text-decoration-none", turbolinks: false %>
             <%= link_to 'Realizadas', requests_path(query: "Realizada"), class: "br-item text-decoration-none", turbolinks: false %>
+            <!--
             <%= link_to 'Todas', user_root_path, class: "br-item text-decoration-none", turbolinks: false %>
+            -->
           </div>
         </div>
 
@@ -37,13 +33,15 @@
 
       <!-- Barra de Busca -->
       <div class="search-bar">
-        <div class="br-input">
-          <label for="table-searchbox-85957">Buscar</label>
-          <input id="table-searchbox-85957" type="text" placeholder="Buscar na descrição"/>
-          <button class="br-button circle" type="button" aria-label="Buscar">
+        <%= form_tag requests_path, class: "br-input", method: :get do %>
+          <%= text_field_tag :query, params[:query], id: "table-searchbox-85957",
+            class: "form-control",
+            placeholder: "Buscar termo na descrição da requisição"
+          %>
+          <%= button_tag :submit, class: "br-button circle" do %>
             <i class="fas fa-search" aria-hidden="true"></i>
-          </button>
-        </div>
+          <% end %>
+        <% end %>
         <button class="br-button circle inverted" type="button" data-dismiss="search" aria-label="Encerrar busca">
           <i class="fas fa-times" aria-hidden="true"></i>
         </button>

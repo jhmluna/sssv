@@ -2,16 +2,19 @@ class RequestsController < ApplicationController
   before_action :set_request, only: %i[get conclude show edit update]
 
   def index
+    # raise
     case current_user.role
     when "manager"
       if params[:query].blank?
         @requests = policy_scope(Request)
       else
-        # @requests = (field == "status") ?
-        #   policy_scope(Request.where(status: params[:query].split(':')[1]))
-        #   :
-        #   policy_scope(Request.where(status: params[:query]))
-        @requests = policy_scope(Request.where(status: params[:query]))
+        if params[:button]
+          # busca pelo termo especificado pelo usuario e presente no campo description
+          @requests = policy_scope(Request).search_by_description(params[:query])
+        else
+          # busca pelos filtros pré estabelecidos: Abertas, Em Andamento, Realizadas, Todas
+          @requests = policy_scope(Request).where(status: params[:query])
+        end
       end
       render action: "index_manager" and return
     when "tech"
