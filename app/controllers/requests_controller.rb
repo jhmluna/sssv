@@ -39,7 +39,8 @@ class RequestsController < ApplicationController
     @request.citizen = current_user
     authorize @request
     if @request.save
-      redirect_to request_path(@request), notice: 'Request was successfully created into the catalog.'
+      # redirect_to request_path(@request), notice: 'Request was successfully created into the catalog.'
+      redirect_to request_path(@request), notice: 'Solicitação criada com sucesso!'
     else
       render :new
     end
@@ -53,7 +54,8 @@ class RequestsController < ApplicationController
     # set_request - Substituido pelo before_action
     @request.update(tech: nil) if request_params["status"].eql?("Aberta")
     if @request.update(request_params)
-      redirect_to request_path(@request), notice: 'Request was successfully updated.'
+      # redirect_to request_path(@request), notice: 'Request was successfully updated.'
+      redirect_to request_path(@request), notice: 'Solicitação atualizada com sucesso!'
     else
       render :edit
     end
