@@ -8,4 +8,8 @@ class Request < ApplicationRecord
   belongs_to :citizen, class_name: 'User'
   belongs_to :tech, optional: true, class_name: 'User'
   validates :instrument, :service, :location, :description, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_description, against: :description,
+      using: { tsearch: { prefix: true } }
 end
