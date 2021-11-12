@@ -2,9 +2,9 @@
   <%# Disable some input field if the current user is a tech %>
   <% is_disabled = current_user.role.eql?("tech") %>
   <%= simple_form_for(@request) do |f| %>
-    <%= f.input :instrument, disabled: is_disabled, label: "Instrumento", collection: Request::INSTRUMENTS, input_html: { class: "fit-content"} %>
-    <%= f.input :service, disabled: is_disabled, label: "Serviço", collection: Request::SERVICES, input_html: { class: "fit-content"} %>
-    <%= f.input :location, disabled: is_disabled, label: "Local", collection: Request::STATES, input_html: { class: "fit-content"} %>
+    <%= f.input :instrument, disabled: is_disabled, prompt: "Selecione o instrumento", label: "Instrumento", collection: Request::INSTRUMENTS, input_html: { class: "fit-content"} %>
+    <%= f.input :service, disabled: is_disabled, prompt: "Selecione o serviço", label: "Serviço", collection: Request::SERVICES, input_html: { class: "fit-content"} %>
+    <%= f.input :location, disabled: is_disabled, prompt: "Selecione o local", label: "Local", collection: Request::STATES, input_html: { class: "fit-content"} %>
     <%= f.input :description, disabled: is_disabled, label: "Descrição" %>
     <% unless @request.status.eql?('Aberta') || current_user.role.eql?("citizen") %>
       <%= f.input :report, label: "Relatório" %>
