@@ -68,17 +68,7 @@ class RequestsController < ApplicationController
     redirect_to requests_path
   end
 
-  # def destroy
-  #  @request.destroy
-  #  redirect_to requests_path
-  # end
-
   private
-
-  # This will return the view file according user logged.
-  def view_for_user(view_name)
-    "#{view_name}_#{current_user.role}"
-  end
 
   def set_request
     @request = Request.find(params[:id])

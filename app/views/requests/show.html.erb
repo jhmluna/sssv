@@ -1,38 +1,40 @@
 <div class="container">
-  <div class="row justify-content-center mt-3">
+  <div class="row justify-content-center mt-4">
     <div class="col col-lg-10 col-xl-8">
       <div class="px-sm-3 br-card">
-        <div class="card-header border-solid-none bg-white">
-          <h2 class="my-3">Detalhes da Requisição</h2>
+        <div class="card-header bg-white">
+          <div class="row header-space mt-0 mb-1">
+            <h1><span class="blue-word">Detalhes da </span> Requisição n° <strong><%= @request.id %></strong> </h1>
+          </div>
+          <div class="row header-text">
+            <p><strong> <%= current_user.full_name %></strong>, aqui você visualiza os detalhes da sua requisição.</p>
+          </div>
         </div>
         <div class="card-content">
           <dl class="row">
-            <dt class="col-md-4">Requisição nº:</dt>
-            <dd class="col-md-8"><%= @request.id %></dd>
+            <dt class="col-md-4 py-2"><span class="detail-type">Instrumento:</span></dt>
+            <dd class="col-md-8 pt-2 mb-0"><span class="detail-desc"><%= @request.instrument %></span></dd>
 
-            <dt class="col-md-4">Instrumento:</dt>
-            <dd class="col-md-8"><%= @request.instrument %></dd>
+            <dt class="col-md-4 py-2"><span class="detail-type">Serviço:</span></dt>
+            <dd class="col-md-8 pt-2 mb-0"><span class="detail-desc"><%= @request.service %></span></dd>
 
-            <dt class="col-md-4">Serviço:</dt>
-            <dd class="col-md-8"><%= @request.service %></dd>
+            <dt class="col-md-4 py-2"><span class="detail-type">Localização:</span></dt>
+            <dd class="col-md-8 pt-2 mb-0"><span class="detail-desc"><%= @request.location %></span></dd>
 
-            <dt class="col-md-4">Localização:</dt>
-            <dd class="col-md-8"><%= @request.location %></dd>
+            <dt class="col-md-4 py-2"><span class="detail-type">Data da Solicitação:</span></dt>
+            <dd class="col-md-8 pt-2 mb-0"><span class="detail-desc"><%= @request.created_at.to_datetime.to_formatted_s(:long) %></span></dd>
 
-            <dt class="col-md-4">Data da Solicitação:</dt>
-            <dd class="col-md-8"><%= @request.created_at.to_datetime.to_formatted_s(:long) %></dd>
+            <dt class="col-md-4 py-2"><span class="detail-type">Status:</span></dt>
+            <dd class="col-md-8 pt-2 mb-0"><span class="detail-desc"><%= @request.status %></span></dd>
 
-            <dt class="col-md-4">Status:</dt>
-            <dd class="col-md-8"><%= @request.status %></dd>
-
-            <dt class="col-md-4">Descrição:</dt>
-            <dd class="col-md-8"><%= @request.description %></dd>
+            <dt class="col-md-4 py-2"><span class="detail-type">Descrição:</dt>
+            <dd class="col-md-8 pt-2 mb-0"><span class="detail-desc"><%= @request.description %></span></dd>
             <% unless @request.status.eql?('Aberta') %>
-              <dt class="col-md-4">Relatório:</dt>
-              <dd class="col-md-8"><%= @request.report %></dd>
+              <dt class="col-md-4 py-2"><span class="detail-type">Relatório:</dt>
+              <dd class="col-md-8 pt-2 mb-0"><span class="detail-desc"><%= @request.report %></span></dd>
               <% unless current_user.role.eql?("citizen") %>
-                <dt class="col-md-4">Técnico Designado:</dt>
-                <dd class="col-md-8"><%= @request.tech.full_name %></dd>
+                <dt class="col-md-4 py-2"><span class="detail-type">Técnico Designado:</span></dt>
+                <dd class="col-md-8 pt-2 mb-0"><span class="detail-desc"><%= @request.tech.full_name %></span></dd>
               <% end %>
             <% end %>
           </dl>
