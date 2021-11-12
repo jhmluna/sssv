@@ -8,21 +8,43 @@
         <p><strong> <%= current_user.full_name %>, </strong> aqui é o espaço para acompanhar suas solicitações ao Inmetro</p>
       </div>
 
-      <div class="row">
-        <div>
+      <div class="col-sm-12 col-md-10 col-lg-8">
+        <div class="row">
           <div class="br-card">
-            <ul class="list-group">
-            <% @requests.each do |request| %>
-              <li class="list-group-item" >
-              <% if request.status == 'Realizada'  %>
-                <i class="fas fa-check-square"></i>
-              <% else %>
-                <i class="far fa-square"></i>
+            <div id="orders" class="card-content">
+              <ul class="list-group">
+              <% @requests.each do |request| %>
+                <li id="order-box" class="list-group-item" >
+                <div id="card-head" class="card-header"><strong>Requisição nº:</strong>&nbsp<%= "%05d" % request.id %></div>
+                  <div id="card-content-box" class="card-content">
+                    <div id="card-content-item" class="card-content">
+                      <div><strong>Instrumento:</strong>&nbsp<%= request.instrument %></div>
+                    </div>
+                    <div id="card-content-item" class="card-content">
+                    <% if request.status == 'Realizada' %>
+                    <div><strong>Status:</strong>&nbsp<a style="color:green"><%= request.status %></a></div>
+                    <% elsif request.status == 'Em andamento' %>
+                    <div><strong>Status:</strong>&nbsp<a style="color:red"><%= request.status %></a></div>
+                    <% else %>
+                    <div><strong>Status:</strong>&nbsp<a style="color:blue"><%= request.status %></a></div>
+                    <% end %>
+                    </div>
+                  </div>
+                <div id="card-foot" class="card-footer">
+                  <div id="icon-btn" class="d-flex">
+                    <div class="br-button inverted mt-3 mt-sm-0 ml-sm-3" type="button" aria-label="Ícone ilustrativo">
+                      <span>
+                      <%= link_to request_path(request) do %>
+                        <i class="fas fa-edit"></i>
+                      <% end %>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                </li>
               <% end %>
-              <%= link_to request.instrument, request_path(request) %></li>
-            <% end %>
-            </ul>
-            <br>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
