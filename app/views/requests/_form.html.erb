@@ -2,18 +2,18 @@
   <%# Disable some input field if the current user is a tech %>
   <% is_disabled = current_user.role.eql?("tech") %>
   <%= simple_form_for(@request) do |f| %>
-    <%= f.input :instrument, disabled: is_disabled, label: "Instrumento",collection: Request::INSTRUMENTS %>
-    <%= f.input :service, disabled: is_disabled, label: "Serviço", collection: Request::SERVICES %>
-    <%= f.input :location, disabled: is_disabled, label: "Local", collection: Request::STATES %>
+    <%= f.input :instrument, disabled: is_disabled, label: "Instrumento", collection: Request::INSTRUMENTS, input_html: { class: "fit-content"} %>
+    <%= f.input :service, disabled: is_disabled, label: "Serviço", collection: Request::SERVICES, input_html: { class: "fit-content"} %>
+    <%= f.input :location, disabled: is_disabled, label: "Local", collection: Request::STATES, input_html: { class: "fit-content"} %>
     <%= f.input :description, disabled: is_disabled, label: "Descrição" %>
     <% unless @request.status.eql?('Aberta') || current_user.role.eql?("citizen") %>
       <%= f.input :report, label: "Relatório" %>
-      <%= f.input :status, collection: Request::STATUS %>
+      <%= f.input :status, collection: Request::STATUS, input_html: { class: "fit-content"} %>
     <% end %>
 
     <div class="d-flex justify-content-end mb-3">
-      <%= link_to 'Back', requests_path, class: "br-button secondary mt-3 mt-sm-0 mx-sm-3" %>
-      <%= f.submit 'Save', class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
+      <%= link_to 'Voltar', requests_path, class: "br-button secondary mt-3 mt-sm-0 mx-sm-3" %>
+      <%= f.submit 'Enviar', class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
     </div>
   <% end %>
 </div>

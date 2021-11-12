@@ -1,7 +1,12 @@
 <div class="container">
   <div class="row justify-content-center mt-3">
     <div class="col col-lg-10 col-xl-8">
-      <h1 class="text-center">Nova Requisição</h1>
+      <div class="row header-space">
+        <h1><span class="blue-word">Criar</span> Requisição</h1>
+      </div>
+      <div class="row header-text">
+        <p><strong><%= current_user.full_name %></strong>, aqui você pode criar uma nova solicitação ao Inmetro</p>
+      </div>
       <%= render partial: 'form' %>
     </div>
   </div>
