@@ -78,3 +78,6 @@ gem 'devise-i18n'
 
 # PG-Search
 gem 'pg_search', '~> 2.3.0'
+
+# Generates fake data for seed
+gem 'faker'
