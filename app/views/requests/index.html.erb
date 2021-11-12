@@ -5,7 +5,11 @@
         <h1><span class="blue-word">Sua</span> Lista de Requisições</h1>
       </div>
       <div class="row header-text">
-        <p><strong> <%= current_user.full_name %>, </strong> aqui é o espaço para acompanhar suas solicitações ao Inmetro</p>
+        <% if current_user.role.eql?("citizen") %>
+          <p><strong> <%= current_user.full_name %>, </strong> aqui é o espaço para acompanhar suas solicitações ao Inmetro</p>
+        <% else %>
+          <p><strong> <%= current_user.full_name %>, </strong> aqui é o espaço para acompanhar as solicitações recebidas pelo seu Órgão.</p>
+        <% end %>
       </div>
 
       <div class="col-sm-12 col-md-10 col-lg-8">
