@@ -1,0 +1,20 @@
+// Icons in home page for logged user.
+// For center align icons
+[class^="bi"], [class*=" bi-"] {
+    display: inline-block;
+    width: 100%;
+}
+
+div i {
+  font-size: 40px;
+  text-align: center;
+}
+
+.requests-link {
+  color: #555;
+}
+
+.requests-link:hover {
+  text-decoration: none;
+  color: #2864ae;
+}

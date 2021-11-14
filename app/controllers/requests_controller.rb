@@ -6,21 +6,21 @@ class RequestsController < ApplicationController
     case current_user.role
     when "manager"
       if params[:query].blank?
-        @requests = policy_scope(Request)
+        @requests = policy_scope(Request.order(:created_at))
+      elsif params[:button]
+        # busca pelo termo especificado pelo usuario e presente no campo description
+        @requests = policy_scope(Request).search_by_description(params[:query]).order(:created_at)
       else
-        if params[:button]
-          # busca pelo termo especificado pelo usuario e presente no campo description
-          @requests = policy_scope(Request).search_by_description(params[:query])
-        else
-          # busca pelos filtros pré estabelecidos: Abertas, Em Andamento, Realizadas, Todas
-          @requests = policy_scope(Request).where(status: params[:query])
-        end
+        # busca pelos filtros pré estabelecidos: Abertas, Em Andamento, Realizadas, Todas
+        @requests = policy_scope(Request).where(status: params[:query]).order(:created_at)
       end
       render action: "index_manager" and return
     when "tech"
-      @requests = policy_scope(Request.where(tech: nil, location: current_user.location).or(Request.where(tech: current_user, location: current_user.location)))
+      @requests = policy_scope(Request.where(tech: nil, location: current_user.location)
+                  .or(Request.where(tech: current_user, location: current_user.location)))
+                  .order(:created_at)
     when "citizen"
-      @requests = policy_scope(Request.where(citizen: current_user))
+      @requests = policy_scope(Request.where(citizen: current_user)).order(:created_at)
     end
   end
 
