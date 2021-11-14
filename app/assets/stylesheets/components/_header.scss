@@ -5,16 +5,16 @@
 }
 
 .header-space span {
-  color: #46ad44;
+  color: $header-span;
   font-size: 1.55rem;
 }
 
 .header-space h1 {
-  color: #2864ae;
+  color: $header-title;
 }
 
 .header-text {
-  color: #555;
+  color: $header-text;
   font-size: 16px;
   font-style: italic;
 }

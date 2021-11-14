@@ -11,10 +11,14 @@ div i {
 }
 
 .requests-link {
-  color: #555;
+  color: $header-text;
 }
 
 .requests-link:hover {
   text-decoration: none;
-  color: #2864ae;
+  color: $header-title;
+}
+
+td a {
+  color: $header-title;
 }
