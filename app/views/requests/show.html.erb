@@ -12,7 +12,7 @@
         </div>
 
         <div class="card-content">
-          <% if current_user.role.eql?("tech") %>
+          <% unless current_user.role.eql?("citizen") %>
             <div class="row header-text">
               <h4><strong>Dados do requerente</strong></h4>
             </div>
