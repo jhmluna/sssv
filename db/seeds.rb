@@ -29,15 +29,19 @@ print "."
 tech_mt = User.create!(full_name: 'Tyrion Lannister', email: 'tech_mt@gmail.com', password: '123456',
                        cpf: Faker::IDNumber.brazilian_citizen_number(formatted: true),
                        role: 'tech', location: 'Mato Grosso')
+print "."
 tech_mg = User.create!(full_name: 'Sandor Clegane', email: 'tech_mg@gmail.com', password: '123456',
                        cpf: Faker::IDNumber.brazilian_citizen_number(formatted: true),
                        role: 'tech', location: 'Minas Gerais')
+print "."
 tech_rj = User.create!(full_name: 'Khal Drogo', email: 'tech_rj@gmail.com', password: '123456',
                        cpf: Faker::IDNumber.brazilian_citizen_number(formatted: true),
                        role: 'tech', location: 'Rio de Janeiro')
+print "."
 tech_mt2 = User.create!(full_name: 'Augusto Mendonça', email: 'augustoapo@gmail.com', password: '123456',
                         cpf: Faker::IDNumber.brazilian_citizen_number(formatted: true),
                         role: 'tech', location: 'Mato Grosso')
+print "."
 manager = User.create!(full_name: 'Stannis Baratheon', email: 'manager@gmail.com', password: '123456',
                        cpf: Faker::IDNumber.brazilian_citizen_number(formatted: true),
                        role: 'manager', location: 'Rio de Janeiro')
