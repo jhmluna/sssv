@@ -10,19 +10,19 @@
       <hr class="solid">
       <div class="header-text">
         <label>CPF</label>
-        <label class="cpf"><%= current_user.cpf %></label>
+        <label class="cpf"><%= @user.cpf %></label>
         <label>Nome</label>
-        <label class="input"><%= current_user.full_name %></label>
+        <label class="input"><%= @user.full_name %></label>
         <label>E-mail</label>
-        <label class="input"><%= current_user.email %></label>
+        <label class="input"><%= @user.email %></label>
         <label>Telefone</label>
-        <label class="input"><%= current_user.phone_number %></label>
+        <label class="input"><%= @user.phone_number %></label>
         <label>Endereço</label>
-        <label class="input"><%= current_user.address %></label>
+        <label class="input"><%= @user.address %></label>
       </div>
       <div class="row justify-content-end">
         <%= link_to 'Voltar', pages_path, class: "br-button secondary mt-3 mt-sm-0" %>
-        <%= link_to 'Editar', edit_page_path(current_user), class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
+        <%= link_to 'Editar', edit_page_path(@user), class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
       </div>
     </div>
   </div>

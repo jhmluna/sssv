@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # Home and user show
   root to: 'pages#home'
-  resources :pages, only: %i[index show edit]
+  resources :pages, only: %i[index show edit update]
 
   # Request pages
   resources :requests, except: :destroy

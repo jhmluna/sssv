@@ -10,6 +10,7 @@ class Request < ApplicationRecord
   validates :instrument, :service, :location, :description, presence: true
 
   include PgSearch::Model
-  pg_search_scope :search_by_description, against: :description,
-      using: { tsearch: { prefix: true } }
+  pg_search_scope :search_by_description,
+                  against: :description,
+                  using: { tsearch: { prefix: true } }
 end

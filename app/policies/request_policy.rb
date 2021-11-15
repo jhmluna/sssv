@@ -33,11 +33,6 @@ class RequestPolicy < ApplicationPolicy
     owner_or_employee?
   end
 
-
-  #def destroy?
-  #  owner_or_employee?
-  #end
-
   private
 
   def owner_or_employee?
