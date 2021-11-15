@@ -1,0 +1,15 @@
+label {
+    font-size: 14px;
+    color: var(--color-gray-7);
+    font-weight: 600;
+    display: block;
+    margin: 15px 0 5px 0;
+}
+label.cpf {
+  padding-left: 16px;
+}
+
+label.input {
+  font-weight: 400;
+  padding-left: 16px;
+}

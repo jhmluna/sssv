@@ -1,0 +1,13 @@
+<div class='container'>
+  <%#= simple_form_for(@user, url: page_path(@user), html: { method: :put }) do |f| %>
+  <%= simple_form_for(@user, url: page_path(@user)) do |f| %>
+    <%= f.input :full_name, label: "Nome", input_html: { class: "fit-content" } %>
+    <%= f.input :phone_number, input_html: { class: "fit-content" } %>
+    <%= f.input :address %>
+
+    <div class="d-flex justify-content-end mb-3">
+      <%= link_to 'Voltar', page_path(@user), class: "br-button secondary mt-3 mt-sm-0 mx-sm-3" %>
+      <%= f.submit 'Salvar', class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
+    </div>
+  <% end %>
+</div>
