@@ -1,0 +1,20 @@
+// Styles for Header in index view for logged users
+.header-space {
+  margin-top: 25px;
+  font-style: italic;
+}
+
+.header-space span {
+  color: $header-span;
+  font-size: 1.55rem;
+}
+
+.header-space h1 {
+  color: $header-title;
+}
+
+.header-text {
+  color: $header-text;
+  font-size: 16px;
+  font-style: italic;
+}

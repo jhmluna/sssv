@@ -2,7 +2,13 @@
   <div class="br-table" data-search="data-search" data-collapse="data-collapse">
     <!-- Header da Tabela -->
     <div class="table-header">
-      <h1 class = "d-flex justify-content-center">Visão das Requisições</h1>
+      <div class="row header-space justify-content-center">
+        <h1> Lista de Requisições</h1>
+      </div>
+      <div class="row header-text justify-content-center">
+        <p><strong> <%= current_user.full_name %>, </strong> este é o espaço para acompanhar as solicitações recebidas pelo Inmetro.</p>
+      </div>
+      <%# <h1 class = "d-flex justify-content-center">Visão das Requisições</h1> %>
 
       <!-- Barra de Título -->
       <div class="top-bar">
@@ -11,7 +17,7 @@
         <!-- Ativador de opções -->
         <div class="actions-trigger text-nowrap">
           <button class="br-button circle" type="button" title="Ver mais opções" data-toggle="dropdown" data-target="id-target" aria-controls="id-target" aria-expanded="false" data-visible="false">
-            <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+            <i class="fas fa-filter" aria-hidden="true"></i>
           </button>
           <div class="br-list" id="id-target" aria-hidden="true" hidden>
             <%= link_to 'Abertas', requests_path(query: "Aberta"), class: "br-item text-decoration-none", turbolinks: false %>
@@ -58,6 +64,7 @@
           <th scope="col">Status</th>
           <th scope="col">Criada em</th>
           <th scope="col">Atualizada em</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -67,7 +74,8 @@
               <%= "%05d" % request.id %>
             </td>
             <td>
-              <%= link_to request.instrument, request_path(request) %>
+              <%#= link_to request.instrument, request_path(request) %>
+              <%= request.instrument %>
             </td>
             <td>
               <%= request.service %>
@@ -82,6 +90,13 @@
             <td>
               <%= "%02d" % request.updated_at.day %>/<%= "%02d" % request.updated_at.month %>/<%= request.updated_at.year %>
               <%= "%02d" % request.updated_at.hour %>:<%= "%02d" % request.updated_at.min %>
+            </td>
+            <td>
+              <%= link_to request_path(request) do %>
+                <div>
+                  <i class="fas fa-eye"></i>
+                </div>
+              <% end %>
             </td>
           </tr>
         <% end %>
