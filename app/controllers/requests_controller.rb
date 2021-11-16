@@ -53,7 +53,7 @@ class RequestsController < ApplicationController
   def get
     # set_request - Substituido pelo before_action
     @request.update(tech: current_user, status: "Em andamento")
-    redirect_to requests_path
+    redirect_to @request, notice: 'Atribuição realizada com sucesso!'
   end
 
   def conclude
