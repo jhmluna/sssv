@@ -43,10 +43,11 @@ class RequestsController < ApplicationController
   def update
     # set_request - Substituido pelo before_action
     @request.update(tech: nil) if request_params["status"].eql?("Aberta")
-    if @request.update(request_params)
+    if @request.update(request_params) && !@request.report.blank?
       redirect_to request_path(@request), notice: 'Solicitação atualizada com sucesso!'
     else
-      render :edit
+      redirect_to edit_request_path(@request), alert: 'Relatório necessita ser preenchido'
+      # render :edit
     end
   end
 
