@@ -46,8 +46,8 @@ class RequestsController < ApplicationController
     if @request.update(request_params) && !@request.report.blank?
       redirect_to request_path(@request), notice: 'Solicitação atualizada com sucesso!'
     else
-      redirect_to edit_request_path(@request), alert: 'Relatório necessita ser preenchido'
-      # render :edit
+      #redirect_to edit_request_path(@request), alert: 'Relatório necessita ser preenchido'
+      render :edit
     end
   end
 
