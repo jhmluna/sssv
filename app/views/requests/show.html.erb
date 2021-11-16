@@ -76,7 +76,9 @@
               <% when "Em andamento" %>
                 <% if current_user.role.eql?("tech") %>
                   <%= link_to 'Atualizar', edit_request_path(@request), class: "br-button primary mt-3 mt-sm-0 mx-sm-3" %>
-                  <%= link_to 'Concluir', "#", class: "br-button primary mt-3 mt-sm-0 mx-sm-3", data: { toggle:"modal", target:"#staticBackdrop"} %>
+                  <% if !@request.report.blank? %>
+                    <%= link_to 'Concluir', "#", class: "br-button primary mt-3 mt-sm-0 mx-sm-3", data: { toggle:"modal", target:"#staticBackdrop"} %>
+                  <% end %>
                 <% end %>
             <% end %>
           </div>
